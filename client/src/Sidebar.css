@@ -1,0 +1,48 @@
+@media only screen and (max-width: 575px) {
+    .sidebar__items {
+      flex-direction: column !important;
+    }
+
+    .sidebar__item {
+        justify-content: space-between;
+    }
+
+    .sidebar__item p {
+        align-items: center !important;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .sidebar__flag--div {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}
+
+.sidebar {
+    position: sticky;
+    top: 80px;
+    flex: 0.3;
+    border-radius: 10px;
+
+    height: fit-content;
+}
+
+.sidebar__flag {
+    max-width: 30px;
+    max-height: -20px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.sidebar__item {
+    display: flex;
+}
+
+.sidebar__item p {
+    padding-left: 20px;
+}
+
+.news__item p {
+    font-size: 12px;
+}

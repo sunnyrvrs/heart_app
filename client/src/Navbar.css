@@ -1,0 +1,73 @@
+@media only screen and (max-width: 606px) {
+    .logo__description {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .nav__container-right {
+        flex-direction: column;
+    }
+
+    .navbaritems {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo__name {
+        padding-bottom: 20px;
+        padding-top: 10px;
+    }
+}
+
+.montserrat {
+    font-family: "montserrat" !important;
+}
+
+.nav {
+    display: flex;
+}
+
+.navbaritems {
+    display: flex;
+    padding: 20px;
+    background-color: white;
+    justify-content: space-between;
+    text-align: right;
+    z-index: 999;
+    border-bottom: 0.1px solid lightgray;    
+}
+
+#logo__container {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo__description {
+    font-size: 12px;
+}
+
+.nav__container-right {
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+#feed__navitem a {
+    color: red !important;
+    z-index: 999;
+}
+
+#messages__navitem a {
+    color: orange !important;
+    z-index: 999;
+}
+
+#profile__navitem a {
+    color: green !important;
+    z-index: 999;
+}
+
+#signin__navitem a {
+    color: darkblue !important;
+    z-index: 999;
+}
