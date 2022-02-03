@@ -1,13 +1,21 @@
 import express from 'express';
 const app = express();
 import mongoose from 'mongoose';
-import cors from 'cors';
 import bodyParser from 'body-parser';
 
 import newsRoutes from './routes/news.js';
 
+import cors from 'cors';
+
+const corsOptions = {
+   origin:'*', 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+
+app.use(cors(corsOptions)) 
+
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
-app.use(cors());
 
 app.use('/news', newsRoutes);
 

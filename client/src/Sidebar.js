@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Sidebar.css";
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import CelebrationIcon from '@mui/icons-material/Celebration';
 
 function Sidebar() {
+
+  const [news, setNews] = useState({});
+
+  async function fetchNews() {
+    const response = await fetch('http://localhost:5000/news', {
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    }).then(res => {
+      res.json().then(j => {
+        console.log(j);
+        console.log('hi');
+      })
+    });
+  }
+
+  useEffect(() => {
+    fetchNews();
+    // console.log(news);
+  }, []);
+
   return (
       <div className="sidebar">
         <div className="sidebar__items">
