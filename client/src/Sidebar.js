@@ -5,7 +5,7 @@ import CelebrationIcon from '@mui/icons-material/Celebration';
 
 function Sidebar() {
 
-  const [news, setNews] = useState({});
+  const [news, setNews] = useState([]);
 
   async function fetchNews() {
     const response = await fetch('http://localhost:5000/news', {
@@ -14,17 +14,17 @@ function Sidebar() {
         'Content-type': 'application/json',
       },
     }).then(res => {
-      res.json().then(j => {
-        console.log(j);
-        console.log('hi');
-      })
+      // console.log(res);
+      return res.json();
     });
+    setNews(response);
+    console.log(news);
   }
 
   useEffect(() => {
     fetchNews();
     // console.log(news);
-  }, []);
+  }, [news]);
 
   return (
       <div className="sidebar">
@@ -43,7 +43,7 @@ function Sidebar() {
           </div>
           <div className="news__div sidebar__item">
             <div className="news__item">
-              <p>News here</p>
+              {/* {news.map(article => <div>{article}</div>)} */}
             </div>
           </div>
         </div>

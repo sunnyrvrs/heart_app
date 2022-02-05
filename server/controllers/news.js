@@ -1,20 +1,23 @@
 import axios from 'axios';
 
+var options = {
+  method: 'GET',
+  url: 'https://free-news.p.rapidapi.com/v1/search',
+  params: {q: 'LGBTQ', lang: 'en'},
+  headers: {
+    'x-rapidapi-host': 'free-news.p.rapidapi.com',
+    'x-rapidapi-key': 'c9680064f4msh9bc79a5e1a67255p1d63dejsn5278b3562cb2'
+  }
+};
+
 export const getNews = async (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     try { 
-        const query = res['req']['body']['searchterm'];
-
-        const APIKEY = `pub_42256ee20a0e3e8ca810a3146a66cf29fdf4`;
-
-        const data = await axios.get(`http://newsdata.io/api/1/news?apikey=${APIKEY}&q=${query}&language=en&country=us`, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-
-        res.send(data['data']);
-
+        axios.request(options).then(function (response) {
+            res.send(response.data);
+        }).catch(function (error) {
+            console.error(error);
+        });
     } catch (error) {
         console.log(error);
     }
